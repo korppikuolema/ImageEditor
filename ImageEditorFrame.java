@@ -28,7 +28,6 @@ private void setDummyImage(){
 }
 
  
-=======
  private void createMenuBar(){
  JMenuBar menuBar = new JMenuBar();
  setJMenuBar(menuBar);
@@ -46,7 +45,16 @@ public void actionPerformed(ActionEvent e){
 }
 private void onOpen(){
  JOptionPane.showMessageDialog(this, "Open Selected");
+ try{
+ JFileChooser fileChooser = new JFileChooser();
+ fileChooser.showOpenDialog(this);
+ File file = fileChooser.getSelectedFile();
+ BufferedImage image = ImageIO.read(file);
+ panel.setImage(image);
+	}
+ catch(IOException e){
+ JOptionPane.showMessageDialog(this,
+ "Die Datei konnte nicht geöffnet werden");
+	}
 }
-
-
 }

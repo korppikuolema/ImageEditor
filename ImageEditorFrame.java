@@ -11,4 +11,19 @@ public class ImageEditorFrame extends JFrame{
  setSize(400, 300);
  setVisible(true);
  }
+ 
+ panel = new ImageEditorPanel();
+add(panel);
+
+
+private void setDummyImage(){
+ BufferedImage bufferedImage =
+ new BufferedImage(400, 300, BufferedImage.TYPE_INT_RGB);
+ Graphics g = bufferedImage.getGraphics();
+ g.setColor(Color.YELLOW);
+ g.fillOval(10, 10, 380, 280);
+ panel.setImage(bufferedImage);
+}
+
+ 
 }
